@@ -66,7 +66,8 @@ namespace PKHeXPluginExample
             //pkm.Move1_PP = 40;
             pkm.Gender = 0;//无性别
             pkm.Language = 9;//简体中文
-            pkm.IsNicknamed = false;//重置昵称
+            //pkm.IsNicknamed = false;//重置昵称
+            pkm.SetDefaultNickname();//测试昵称
             // CommonEdits.SetShiny(pkm);变闪
         }
 
