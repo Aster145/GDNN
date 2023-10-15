@@ -59,10 +59,10 @@ namespace PKHeXPluginExample
             // Make everything Bulbasaur! 让一切变成妙蛙种子！
             pkm.Species = (int)Species.Ditto;//换成百变怪
             // pkm.Species = (int)Species.Bulbasaur;
-            pkm.Move1 = 1; // pound技能1拍击
-            pkm.Move2 = 1; // pound技能1拍击
-            pkm.Move3 = 1; // pound技能1拍击
-            pkm.Move4 = 1; // pound技能1拍击
+            pkm.Move1 = 0; // pound技能1拍击
+            pkm.Move2 = 0; // pound技能1拍击
+            pkm.Move3 = 0; // pound技能1拍击
+            pkm.Move4 = 0; // pound技能1拍击
             pkm.Move1_PP = 40;
            // CommonEdits.SetShiny(pkm);变闪
         }
