@@ -63,8 +63,11 @@ namespace PKHeXPluginExample
             pkm.Move2 = 0; // pound技能1拍击
             pkm.Move3 = 0; // pound技能1拍击
             pkm.Move4 = 0; // pound技能1拍击
-            pkm.Move1_PP = 40;
-           // CommonEdits.SetShiny(pkm);变闪
+            //pkm.Move1_PP = 40;
+            pkm.Gender = 0;//无性别
+            pkm.Language = 9;//简体中文
+            pkm.IsNicknamed = false;//重置昵称
+            // CommonEdits.SetShiny(pkm);变闪
         }
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
