@@ -64,11 +64,31 @@ namespace PKHeXPluginExample
             pkm.Move3 = 0; // pound技能1拍击
             pkm.Move4 = 0; // pound技能1拍击
             //pkm.Move1_PP = 40;
-            pkm.Gender = 0;//无性别
+            pkm.Gender = 2;//无性别
             pkm.Language = 9;//简体中文
-            //pkm.IsNicknamed = false;//重置昵称
-            pkm.SetDefaultNickname();//测试昵称
+            //pkm.IsNicknamed = false;//重置昵称,无效
+            pkm.SetDefaultNickname();//重置昵称
+             pkm.PID = 0;//不闪
             // CommonEdits.SetShiny(pkm);变闪
+            pkm.EV_ATK = 0;
+            pkm.EV_DEF = 0;
+            pkm.EV_HP = 0;
+            pkm.EV_SPA = 0;
+            pkm.EV_SPD = 0;
+            pkm.EV_SPE = 0;
+            pkm.IV_ATK = 0;
+            pkm.IV_DEF = 0;
+            pkm.IV_HP = 0;
+            pkm.IV_SPA = 0;
+            pkm.IV_SPD = 0;
+            pkm.IV_SPE = 0;
+            pkm.AbilityNumber = 0;//特性
+            //pk.TeraType = 0;//钛晶
+            pkm.Nature = 0;//性格
+            pkm.RelearnMove1 = 0;
+            pkm.RelearnMove2 = 0;
+            pkm.RelearnMove3 = 0;
+            pkm.RelearnMove4 = 0;
         }
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
