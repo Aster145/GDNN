@@ -4,9 +4,9 @@ using PKHeX.Core;
 
 namespace PKHeXPluginExample
 {
-    public class GDNN : IPlugin
+    public class 自定义插件 : IPlugin
     {
-        public string Name => nameof(GDNN); //Name是插件的名称
+        public string Name => nameof(自定义插件); //Name是插件的名称
         public int Priority => 1; // Loading order, lowest is first.加载顺序，最低的在前。Priority定义了插件加载的优先级
 
         // Initialized on plugin load, 在插件加载时初始化
