@@ -45,12 +45,24 @@ namespace PKHeXPluginExample
             //ctrl.DropDownItems.Add(c3);
             ctrl.DropDownItems.Add(c4);
             Console.WriteLine($"{Name} added menu items.");
+
+            var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为百变怪50级
+            c5.Click += (s, e) => ModifyLV();
+            ctrl.DropDownItems.Add(c5);
+            Console.WriteLine($"{Name} added menu items.");
+
         }
 
         private void ModifySaveFile()
         {
             var sav = SaveFileEditor.SAV;
             sav.ModifyBoxes(ModifyPKM);
+            SaveFileEditor.ReloadSlots();
+        }
+        private void ModifyLV()
+        {
+            var sav = SaveFileEditor.SAV;
+            sav.ModifyBoxes(ModifyLVset);
             SaveFileEditor.ReloadSlots();
         }
         //测试下git版本控制
@@ -89,6 +101,10 @@ namespace PKHeXPluginExample
             pkm.RelearnMove2 = 0;
             pkm.RelearnMove3 = 0;
             pkm.RelearnMove4 = 0;
+        }
+        public static void ModifyLVset(PKM pkm)
+        {
+            pkm.CurrentLevel = 50;//全部设为50级
         }
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
