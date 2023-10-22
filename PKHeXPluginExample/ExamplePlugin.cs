@@ -46,6 +46,9 @@ namespace PKHeXPluginExample
             c5.Click += (s, e) => ModifyLV();
             var c6 = new ToolStripMenuItem($"删除全部精灵");//按钮5,删除全部精灵1
             c6.Click += (s, e) => Deleteallpkm();
+            var c7 = new ToolStripMenuItem($"删除合法精灵");//按钮6,删除合法精灵1
+            c7.Click += (s, e) => MessageBox.Show("不要乱点!!!!!!!!!!!!!!!!!!!\n这个功能还没有写好,呆逼!\n如果你知道这个功能怎么写请联系我\nQQ1451179481");
+            //c7.Click += (s, e) => DeleteLegalpkm();
 
             //ctrl.DropDownItems.Add(c2);
             //ctrl.DropDownItems.Add(c3);
@@ -57,6 +60,11 @@ namespace PKHeXPluginExample
 
             ctrl.DropDownItems.Add(c6);//按钮5,删除全部精灵2
             Console.WriteLine($"{Name} added menu items.");
+
+            ctrl.DropDownItems.Add(c7);
+
+            //ctrl.DropDownItems.Add(c6);//按钮6,删除非法精灵2
+            //Console.WriteLine($"{Name} added menu items.");
         }
 
         private void ModifySaveFile()//按钮3;全部设置为百变怪3
@@ -77,6 +85,13 @@ namespace PKHeXPluginExample
             sav.ModifyBoxes(delpkm);
             SaveFileEditor.ReloadSlots();
         }//按钮5,删除全部精灵3
+
+        private void DeleteLegalpkm()
+        {
+            var sav = SaveFileEditor.SAV;
+            sav.ModifyBoxes(delLegalpkm);
+            SaveFileEditor.ReloadSlots();
+        }//按钮6,删除非法精灵3
         public static void ModifyPKM(PKM pkm)
         {
             // Make everything Bulbasaur! 让一切变成妙蛙种子！
@@ -124,6 +139,12 @@ namespace PKHeXPluginExample
 
 
         }//按钮5,删除全部精灵4
+
+        public static void delLegalpkm(PKM pkm)
+        {
+            pkm.Species = (int)Species.None;//删除
+
+        }//按钮6,删除非法精灵4
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
         {
