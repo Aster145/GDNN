@@ -40,22 +40,22 @@ namespace PKHeXPluginExample
             //var c3 = new ToolStripMenuItem($"{Name} show message");//按钮2,显示一个消息框,打印一个hello
             //c3.Click += (s, e) => MessageBox.Show("Hello!");
 
-            var c4 = new ToolStripMenuItem($"全部设置为百变怪");//按钮3修改当前打开的存档文件,所有精灵变成妙蛙种子,改成百变怪英文昵称
+            var c4 = new ToolStripMenuItem($"全部设置为百变怪");//按钮3改成百变怪1
             c4.Click += (s, e) => ModifySaveFile();
-            var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为百变怪50级
+            var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为50级1
             c5.Click += (s, e) => ModifyLV();
 
             //ctrl.DropDownItems.Add(c2);
             //ctrl.DropDownItems.Add(c3);
-            ctrl.DropDownItems.Add(c4);
+            ctrl.DropDownItems.Add(c4);//按钮3改成百变怪2
             Console.WriteLine($"{Name} added menu items.");
 
-            ctrl.DropDownItems.Add(c5);
+            ctrl.DropDownItems.Add(c5);//按钮4,全部设置为50级2
             Console.WriteLine($"{Name} added menu items.");
 
         }
 
-        private void ModifySaveFile()
+        private void ModifySaveFile()//按钮3;全部设置为百变怪3
         {
             var sav = SaveFileEditor.SAV;
             sav.ModifyBoxes(ModifyPKM);
@@ -66,8 +66,7 @@ namespace PKHeXPluginExample
             var sav = SaveFileEditor.SAV;
             sav.ModifyBoxes(ModifyLVset);
             SaveFileEditor.ReloadSlots();
-        }
-        //测试下git版本控制
+        }//按钮4,全部设置为50级3
         public static void ModifyPKM(PKM pkm)
         {
             // Make everything Bulbasaur! 让一切变成妙蛙种子！
@@ -103,11 +102,26 @@ namespace PKHeXPluginExample
             pkm.RelearnMove2 = 0;
             pkm.RelearnMove3 = 0;
             pkm.RelearnMove4 = 0;
-        }
+        }//按钮3;全部设置为百变怪4
         public static void ModifyLVset(PKM pkm)
         {
             pkm.CurrentLevel = 50;//全部设为50级
-        }
+        }//按钮4,全部设置为50级4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
         {
