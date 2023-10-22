@@ -44,6 +44,8 @@ namespace PKHeXPluginExample
             c4.Click += (s, e) => ModifySaveFile();
             var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为50级1
             c5.Click += (s, e) => ModifyLV();
+            var c6 = new ToolStripMenuItem($"删除全部精灵");//按钮5,删除全部精灵1
+            c6.Click += (s, e) => Deleteallpkm();
 
             //ctrl.DropDownItems.Add(c2);
             //ctrl.DropDownItems.Add(c3);
@@ -53,6 +55,8 @@ namespace PKHeXPluginExample
             ctrl.DropDownItems.Add(c5);//按钮4,全部设置为50级2
             Console.WriteLine($"{Name} added menu items.");
 
+            ctrl.DropDownItems.Add(c6);//按钮5,删除全部精灵2
+            Console.WriteLine($"{Name} added menu items.");
         }
 
         private void ModifySaveFile()//按钮3;全部设置为百变怪3
@@ -67,6 +71,12 @@ namespace PKHeXPluginExample
             sav.ModifyBoxes(ModifyLVset);
             SaveFileEditor.ReloadSlots();
         }//按钮4,全部设置为50级3
+        private void Deleteallpkm()
+        {
+            var sav = SaveFileEditor.SAV;
+            sav.ModifyBoxes(delpkm);
+            SaveFileEditor.ReloadSlots();
+        }//按钮5,删除全部精灵3
         public static void ModifyPKM(PKM pkm)
         {
             // Make everything Bulbasaur! 让一切变成妙蛙种子！
@@ -108,20 +118,12 @@ namespace PKHeXPluginExample
             pkm.CurrentLevel = 50;//全部设为50级
         }//按钮4,全部设置为50级4
 
+        public static void delpkm(PKM pkm)
+        {
+            pkm.Species = (int)Species.None;//删除
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+        }//按钮5,删除全部精灵4
 
         public void NotifySaveLoaded()//当PKHeX加载一个新的存档文件时，NotifySaveLoaded方法会被调用。
         {
