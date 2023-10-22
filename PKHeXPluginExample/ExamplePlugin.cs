@@ -35,19 +35,21 @@ namespace PKHeXPluginExample
             var ctrl = new ToolStripMenuItem(Name);
             tools.DropDownItems.Add(ctrl);
 
-            var c2 = new ToolStripMenuItem($"{Name} sub form");//按钮1,弹出一个新的窗口
-            c2.Click += (s, e) => new Form().ShowDialog();
-            var c3 = new ToolStripMenuItem($"{Name} show message");//按钮2,显示一个消息框,打印一个hello
-            c3.Click += (s, e) => MessageBox.Show("Hello!");
+            //var c2 = new ToolStripMenuItem($"{Name} sub form");//按钮1,弹出一个新的窗口
+            //c2.Click += (s, e) => new Form().ShowDialog();
+            //var c3 = new ToolStripMenuItem($"{Name} show message");//按钮2,显示一个消息框,打印一个hello
+            //c3.Click += (s, e) => MessageBox.Show("Hello!");
+
             var c4 = new ToolStripMenuItem($"全部设置为百变怪");//按钮3修改当前打开的存档文件,所有精灵变成妙蛙种子,改成百变怪英文昵称
             c4.Click += (s, e) => ModifySaveFile();
+            var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为百变怪50级
+            c5.Click += (s, e) => ModifyLV();
+
             //ctrl.DropDownItems.Add(c2);
             //ctrl.DropDownItems.Add(c3);
             ctrl.DropDownItems.Add(c4);
             Console.WriteLine($"{Name} added menu items.");
 
-            var c5 = new ToolStripMenuItem($"全部设置为50级");//按钮4,全部设置为百变怪50级
-            c5.Click += (s, e) => ModifyLV();
             ctrl.DropDownItems.Add(c5);
             Console.WriteLine($"{Name} added menu items.");
 
